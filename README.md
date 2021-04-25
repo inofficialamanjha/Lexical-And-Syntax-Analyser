@@ -1,12 +1,14 @@
 # Compiler-Design
 
-Lexical Analyzer : Responsible for generating a stream of tokens <name,value> issued for each lexeme ( chunk of text ). It is also responsible for constructing the symbol Table.
+Compiler has broadly 6 phases : Lexical Analyser, Syntax Analyser, Semantic Analyser, Intermediate Code Generator, Code Optimizer, Code Generator.
 
 
 ![Compiler Flow Chart](https://user-images.githubusercontent.com/75173703/115982029-b50b1c80-a5b5-11eb-876d-10fc330a0fba.PNG)
 
 
 # Lexical Analyser
+
+Lexical Analyzer : Responsible for generating a stream of tokens <name,value> issued for each lexeme ( chunk of text ). It is also responsible for constructing the symbol Table.
 
 Tokens ( NFA ) : <name,value> ;
 
@@ -76,8 +78,61 @@ In case of multiple Yes :
 
 Parses the string to check if the rule of grammar were followed, and if followed - creates a parse tree for the input string.
 
+Parsing : Constructing a tree for an input string using the CFG ( Context Free Grammar ) Rules. There are two types of parsing, Top-down parsing and bottom-up parsing.
 
-## LL(1) Parser
+
+## First
+
+To Compute FIRST(X) for all grammar symbols X, apply the following rules until no more terminals or **ε** symbols can be added to any FIRST set.
+
+![First](https://user-images.githubusercontent.com/75173703/115982585-09180000-a5ba-11eb-8d9f-2abc6785fa7e.PNG)
+
+## Follow
+
+To Compute FOLLOW(A) for all nonterminals A, apply the following rules until nothing can be added to any FOLLOW set.
+
+![Follow](https://user-images.githubusercontent.com/75173703/115982615-3d8bbc00-a5ba-11eb-83e3-fa0a47ef3630.PNG)
+
+
+## LL(1) Parser or Predictive Parser.
+
+LL(1) is top-down parser, short for _**Left to Right Scanning**_, _**Left most derivation**_ with _**one Look ahead**_.
+
+It starts from the root or the Start Variable S and constructs the tree. Before applyinh make sure that there is no Left Recursion in the Grammar.
+
+It Constructs a parsing table, and the performs a sequence of moves on the input string. Eg.
+
+- **Grammar**
+
+![Grammar](https://user-images.githubusercontent.com/75173703/115982721-d4587880-a5ba-11eb-93c8-7f8c6bce1acb.PNG)
+
+- **Grammar After Removing Left-Recursion**
+
+Left recursion is such that _A --> Aα_
+
+Replace the left recursive productions by non-left recusrsive Productions.
+
+![Left Recursion Removal Rule](https://user-images.githubusercontent.com/75173703/115982745-08339e00-a5bb-11eb-85b1-e4e8b2d0714a.PNG)
+
+For our Grammar :
+
+![Grammar without LR](https://user-images.githubusercontent.com/75173703/115982767-20a3b880-a5bb-11eb-9eeb-17143c837fe4.PNG)
+
+- **Constructing Parsing Table from the Given Grammar**
+
+Then, we construct a Predictive Parsing Table :
+
+![Parsing Table](https://user-images.githubusercontent.com/75173703/115982791-4cbf3980-a5bb-11eb-8373-c379e7c28682.PNG)
+
+
+- **Sequence of Moves** for input _id + id * id_
+
+Moves made by the predictive parser on our input :
+
+![Parse](https://user-images.githubusercontent.com/75173703/115982816-7a0be780-a5bb-11eb-98f4-f07724720838.PNG)
+
+Outcome : _**( $,$ )**_ : Yes or Accept ( No Syntax Error ).
+
 
 # References
 
