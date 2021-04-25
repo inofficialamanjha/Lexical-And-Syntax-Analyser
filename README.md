@@ -1,9 +1,9 @@
 # Compiler-Design
-C++ ( C++ 11 ) codes for creating a Lexical and LL1 Syntax Analyser
-
-![Compiler Flow Chart](https://user-images.githubusercontent.com/75173703/115982029-b50b1c80-a5b5-11eb-876d-10fc330a0fba.PNG)
 
 Lexical Analyzer : Responsible for generating a stream of tokens <name,value> issued for each lexeme ( chunk of text ). It is also responsible for constructing the symbol Table.
+
+
+![Compiler Flow Chart](https://user-images.githubusercontent.com/75173703/115982029-b50b1c80-a5b5-11eb-876d-10fc330a0fba.PNG)
 
 
 # Lexical Analyser
