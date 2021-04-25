@@ -77,4 +77,8 @@ In case of multiple Yes :
 Parses the string to check if the rule of grammar were followed, and if followed - creates a parse tree for the input string.
 
 
-# LL(1) Parser
+## LL(1) Parser
+
+# References
+
+[Compilers Priciples, Techniques & Tools - Second Edition : Alfred V. Ahno, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools#:~:text=Compilers%3A%20Principles%2C%20Techniques%2C%20and%20Tools%20is%20a%20computer%20science,compiler%20construction%20for%20programming%20languages.)
